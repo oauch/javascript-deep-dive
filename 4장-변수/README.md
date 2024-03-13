@@ -35,8 +35,8 @@
 - `var 키워드` : 선언 단계 / 초기화 단계 동시 진행
 - 변수 선언시, 값을 넣어주지 않으면 JS 엔진에 의해 `undefined` 라는 값으로 초기화된다.
 
-```
-var score;  // undefined
+```javascript
+var score; // undefined
 ```
 
 <br />
@@ -65,11 +65,11 @@ var score;
 
 ### 4-5. 값의 할당
 
-```
-var score;       // 변수 선언
-score = 80;      // 값의 할당
+```javascript
+var score; // 변수 선언
+score = 80; // 값의 할당
 
-var count = 100;  // 변수 선언과 동시의 값의 할당
+var count = 100; // 변수 선언과 동시의 값의 할당
 ```
 
 > ⚠️ **변수 선언** : 소스 코드가 순차적으로 실행되는 시점인 런타임 이전에 먼저 실행
@@ -111,7 +111,7 @@ person = 'YoonMin';      // 값의 재할당
 
 #### 4-8.네이밍 컨벤션
 
-```
+```javascript
 // 카멜 케이스(camelCase)
 var fistMan;
 

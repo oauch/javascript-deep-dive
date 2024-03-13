@@ -41,7 +41,7 @@
 
 #### 멀티라인 문자열
 
-```
+```javascript
 // 일반 문자열 내에서는 줄바꿈(개행)이 허용되지 않는다.
 var str = 'Hello
 World";  // 문법 오류 (SyntaxError)
@@ -52,13 +52,13 @@ World";  // 문법 오류 (SyntaxError)
 > 자바스크립트에서 문자열 연결은 + 사용해 연결 할 수 있다.
 > 하지만 표현식 삽입을 통해 더욱 깔끔하고 쉽게 문자열 삽입
 
-```
-var first = 'YOON';
-var last = 'HYUK';
+```javascript
+var first = "YOON";
+var last = "HYUK";
 
-console.log('내 이름은 ' + first + ' ' + last + '.');
+console.log("내 이름은 " + first + " " + last + ".");
 
-console.log('내 이름은 ${first} ${last}.');
+console.log("내 이름은 ${first} ${last}.");
 ```
 
 ### 6-1-2. 불리언 타입
@@ -73,7 +73,7 @@ console.log('내 이름은 ${first} ${last}.');
   - 변수 선언에 의해 확보된 메모리 공간을 처음 할당이 이루어질 때까지 빈 상태가 아닌 `undefined`로 초기화
   - 따라서, 변수 선언후 값을 할당하지 않은 변수를 참조하면 `undefined` 값 출력
 
-```
+```javascript
 var abc;
 console.log(abc);
 ```
