@@ -33,7 +33,7 @@
 ### 📌 노드 객체의 타입
 
 - `문서 노드` : DOM 트리 최상위에 존재하는 루트 노드로서 document 객체를 가르킴
-  - `window.document`로도 참조할 수 있으며 HTML 문서당 하나인 유일한 객체
+- `window.document`로도 참조할 수 있으며 HTML 문서당 하나인 유일한 객체
 - `요소 노드` : `HTML 요소를 가르키는 객체`이며 중첩에 의해 부자 관계를 가지고 문서의 구조를 표현
 - `어트리뷰트 노드` : `HTML 요소의 어트리뷰트를 가르키는 객체`로 어트리뷰트가 지정된 요소 노드와 연결
 - `텍스트 노드` : HTML 요소의 텍스트를 가르키는 객체. 문서의 정보를 표현. 요소 노드의 자식 노드이면서 leaf 노드
@@ -52,12 +52,14 @@ Object -> EventTarget -> Node -> Element -> HTMLElement -> HTMLInputElement
 따라서 프로토타입 체인 안에 있는 모든 프로토타입의 프로퍼티나 메서드를 상속 받아 사용할 수 있는 것
 ```
 
-`Object` : 객체
-`EventTarget` : 이벤트를 발생시키는 객체
-`Node` : 트리 자료구조의 노드 객체
-`Element` : 브라우저가 렌더링 할 수 있는 웹 문서의 요소를 표현하는 객체
-`HTMLElement` : 웹 문서의 요소 중 HTML 요소를 표현하는 객체
-`HTMLInputElement` : HTML 요소 중에서 input 요소를 표현하는 객체
+- `Object` : 객체
+- `EventTarget` : 이벤트를 발생시키는 객체
+- `Node` : 트리 자료구조의 노드 객체
+- `Element` : 브라우저가 렌더링 할 수 있는 웹 문서의 요소를 표현하는 객체
+- `HTMLElement` : 웹 문서의 요소 중 HTML 요소를 표현하는 객체
+- `HTMLInputElement` : HTML 요소 중에서 input 요소를 표현하는 객체
+
+<br />
 
 - 각 객체마다 관련 기능을 제공하는 인터페이스가 존재하며 공통된 기능일수록 프로토타입 체인의 상위
 - 개별적인 고유 기능일수록 프로토타입 체인의 하위에 프로토타입 체인을 구축하여 노드 객체에 필요한 기능인 프로퍼티 / 메서드를 제공하는 상속 구조를 갖는다.
@@ -73,6 +75,8 @@ Object -> EventTarget -> Node -> Element -> HTMLElement -> HTMLInputElement
 - HTML의 구조, 내용, 스타일을 `동적으로 조작`하려면 먼저 `요소 노드를 취득`을 해야한다. -> 요소 노드의 취득이 HTML 요소를 조작하는 시작점
 - DOM은 요소 노드를 취득할 수 있는 다양한 메서드 제공
 
+<br />
+
 ### 📌 id를 이용한 요소 노드 취득
 
 ```javascript
@@ -86,6 +90,8 @@ getElementById 메서드는 인수로 전달된 id 값을 갖는 첫 번째 요�
 ```
 
 - HTML 요소에 id 속성을 부여하면 id 값과 동일한 이름의 전역 변수가 암묵적으로 선언되고, 해당 노드 객체가 할당되는 부수효과가 있다.
+
+<br />
 
 ```javascript
 <div id="foo" />
@@ -103,6 +109,8 @@ console.log(foo); // <div id = "foo"></div>
 ```javascript
 단 id 값과 동일한 이름의 전역 변수가 이미 선언되어 있으면, 이 전역 변수에 노드 객체가 재할당되지 않는다.
 ```
+
+<br />
 
 ### 📌 태그 이름을 이용한 요소 노드 취득
 
@@ -204,7 +212,7 @@ console.log($elems); // HTMLCollection(1) [li.red]
 이유는 첫 번째 반복 시, elems[0]이 blue로 변경되면서 HTMLCollection 객체에서 제외되고 i가 1이 되면서 그 다음 요소인 3번재 요소를 가르킴
 ```
 
-💡 해결법
+💡 **해결법**
 
 - for문 역방향
 - 객체가 남아있지 않을 때까지 while 사용하여 반복
@@ -245,33 +253,43 @@ const { childNodes } = $fruits;
   - nextElementSibling
   - children
 
-💡 공백 텍스트 노드
+<br />
+
+💡 **공백 텍스트 노드**
 
 - html 요소 사이의 스페이스 / 탭 / 줄바꿈 등의 공백 문자는 텍스트 노드를 생성한다. = `공백 텍스트 노드`
 
-💡 자식 노드 탐색
+<br />
+
+💡 **자식 노드 탐색**
 
 - `Node.prototype` -> childeNodes, firstChild, lastChilde가 있으면 이 프로퍼티가 반환하는 NodeList에는 요소노드뿐 아니라 텍스트 노드도 포함 가능성 있음
 - `Element.prototype` -> children, firstElementChild, lastElementChild 프로퍼티가 반환한 HTMLCollection에는 텍스트 노드 포함하지 않음
 
-💡 자식 노드 존재확인
+💡 **자식 노드 존재확인**
 
 - Node.prototype.hasChildeNodes 메서드 이용
 - 존재하면 true / 아니라면 false 반환
 - 자식 노드 중에 텍스트 노드가 아닌 노드가 있는지 확인하기 위해
   `children.length / Element 인터페이스`의 childElementCount 프로퍼티 사용
 
-💡 요소 노드의 텍스트 노드 탐색
+<br />
+
+💡 **요소 노드의 텍스트 노드 탐색**
 
 - 요소 노드의 텍스트 노드는 firstChilde 프로퍼티로 접근 가능 (첫번째 자식 노드 반환)
 - firstChilde 프로퍼티가 반환한 노드 = 텍스트 노드 or 요소 노드
 
-💡 부모 노드 탐색
+<br />
+
+💡 **부모 노드 탐색**
 
 - Node.prototype.parentNode 프로퍼티 사용
 - 텍스트 노드는 DOM 트리의 최종단 노드인 `리프 노드`이므로 부모 노드가 텍스트 노드일 경우 ❌
 
-💡 형제 노드 탐색
+<br />
+
+💡 **형제 노드 탐색**
 
 - 어트리뷰트 노드의 경우, 요소 노드와 연결되어 있지만 부모 노드가 같지 않기 때문에 반환 X
 - Only 텍스트 노드 / 요소 노드 반환
@@ -336,7 +354,9 @@ Element.prototype -> previousElementSibling, nextElementSibling (요소 노드�
 
 - DOM 조작은 리플로우 / 리페인트를 발생하는 원인이 되므로 성능 최적화를 위해 주의해서 사용
 
-💡 innerHTML
+<br />
+
+💡 **innerHTML**
 
 - `Element.prototype.innerHTML` 프로퍼티
 - innerHTML로 참조시, 모든 HTML 마크업을 `문자열`로 반환하여 참조
@@ -510,10 +530,14 @@ DOM 프로퍼티 : 요소 노드의 최신 상태를 관리
   - for 어트리뷰트: htmlFor 프로퍼티와 대응
   - 어트리뷰트에 대응하는 어트리뷰트는 카멜케이스 (htmlFor)
 
+<br />
+
 ### 📍 DOM 프로퍼티 타입
 
 - getAttribute 메서드로 취득한 어트리뷰트의 값 = `항상 문자열`
 - `DOM 프로퍼티`로 취득한 최신 값 = 문자열이 아닐 수 있다.
+
+<br />
 
 ### 📌 data 어트리뷰트 / dataset 프로퍼티
 
