@@ -498,7 +498,7 @@ $button.addEventListener("click", function () {
 <br />
 
 `target` - 이벤트를 발생시킨 DOM 요소
-`currentTarget` - 이벤트 핸들러가 바잉딘된 DOM 요소
+`currentTarget` - 이벤트 핸들러가 바인딩된 DOM 요소
 `event phase` - 이벤트 전파 단계 (0: 이벤트 없음, 1: 캡처링 단계, 2: 타깃 단계, 3: 버블링 단계)
 `bubble` - 이벤트 버블링으로 전파하는지 여부. 다음 이벤트 bubbles:false로 버블링하지 않음 (포커스 이벤트 focus/blur, 리소스 이벤트 load/unload/abort/error, 마우스 이벤트 mouseenter/mouseleave)
 `ccancelable` - preventDefalut 메서드를 호출하여 이벤트의 기본 동작을 취소할 수 있는지 여부. 다음 이벤트는 cancelable: false로 취소할 수 없음 (포커스 이벤트 focus/blur, 리소스 이벤트 load/unload/abort/error, 마우스 이벤트 mouseenter/mouseleave)
